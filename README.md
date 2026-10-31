@@ -71,6 +71,8 @@ flowchart TD
     D -- "🔥 Peak Hours (Penalty Rate)" --> K["🔴 HOLD PUMP OFF<br/>(Coast on Stored Water Buffer)"]
 ```
 
+
+    Students & Staff Active (8:00 - 17:30) :08:00, 17:30
 ### 3. Daily Campus Pumping Schedule (24-Hour Cycle)
 
 ```mermaid
@@ -80,23 +82,22 @@ gantt
     axisFormat %H:%M
 
     section Electricity Tariff
-    Night Off-Peak Rebate (-₹1/kWh) :done, 00:00, 06:00
-    Morning Peak Penalty (+₹1/kWh)  :crit, 06:00, 10:00
-    Normal Daytime Tariff           :active, 10:00, 18:00
-    Evening Peak Penalty (+₹1/kWh)  :crit, 18:00, 22:00
-    Night Off-Peak Rebate (-₹1/kWh) :done, 22:00, 24:00
+    Night Off-Peak Rebate (-₹1/kWh) :done, t1, 00:00, 06:00
+    Morning Peak Penalty (+₹1/kWh)  :crit, t2, 06:00, 10:00
+    Normal Daytime Tariff           :active, t3, 10:00, 18:00
+    Evening Peak Penalty (+₹1/kWh)  :crit, t4, 18:00, 22:00
+    Night Off-Peak Rebate (-₹1/kWh) :done, t5, 22:00, 23:59
 
     section Campus Activity
-    Students & Staff Active (8:00 - 17:30) :08:00, 17:30
+    Students & Staff Active (8 AM to 5.30 PM) :a1, 08:00, 17:30
 
     section TankShift Pump Action
-    Pre-Fill Tanks to 100% (Cheap Power) :02:00, 05:45
-    Pumps LOCKED OFF (Morning Peak)      :06:00, 10:00
-    Mid-Day Partial Top-Up (If Needed)   :13:00, 15:00
-    Pumps LOCKED OFF (Evening Peak)      :18:00, 22:00
-    Night Refill Cycle Starts            :22:15, 24:00
+    Pre-Fill Tanks to 100% (Cheap Power) :p1, 02:00, 05:45
+    Pumps LOCKED OFF (Morning Peak)      :crit, p2, 06:00, 10:00
+    Mid-Day Partial Top-Up (If Needed)   :active, p3, 13:00, 15:00
+    Pumps LOCKED OFF (Evening Peak)      :crit, p4, 18:00, 22:00
+    Night Refill Cycle Starts            :p5, 22:15, 23:59
 ```
-
 ---
 
 ## ✨ Key Innovation vs. Existing Solutions
